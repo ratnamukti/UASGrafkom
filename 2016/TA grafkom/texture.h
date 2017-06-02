@@ -34,13 +34,13 @@ void freeTexture(GLuint texture){
 void initTexture() {
 	texture[0] = LoadTextureRAW("fur1.raw", TRUE, texture[0]);
 	texture[1] = LoadTextureRAW("fur2.raw", TRUE, texture[1]);
-	texture[2] = LoadTextureRAW("ceiling1.raw", TRUE, texture[2]);
+	texture[2] = LoadTextureRAW("ceiling.raw", TRUE, texture[2]);
 	texture[3] = LoadTextureRAW("wall.raw", TRUE, texture[3]);
 	texture[4] = LoadTextureRAW("floor.raw", TRUE, texture[4]);
-	texture[5] = LoadTextureRAW("babybody.raw", TRUE, texture[5]);
-	texture[6] = LoadTextureRAW("babyface.RAW", TRUE, texture[6]);
-	texture[7] = LoadTextureRAW("kingkongface.raw", TRUE, texture[7]);
-	texture[8] = LoadTextureRAW("mouseface.raw", TRUE, texture[8]);
+	texture[5] = LoadTextureRAW("bodymanusia.raw", TRUE, texture[5]);
+	texture[6] = LoadTextureRAW("mukamanusia.RAW", TRUE, texture[6]);
+	texture[7] = LoadTextureRAW("mukahewan.raw", TRUE, texture[7]);
+	texture[8] = LoadTextureRAW("mukakucing.raw", TRUE, texture[8]);
 }
 
 //hapus semua tekstur yang akan digunakan

@@ -441,7 +441,7 @@ void ant(int activateShadow) {
 // room
 void room() {
 	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, texture[4]);
+	glBindTexture(GL_TEXTURE_2D, texture[3]);
 
 	//lantai
 	glBegin(GL_POLYGON);
@@ -459,7 +459,7 @@ void room() {
 	//dinding
 
 	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, texture[3]);
+	glBindTexture(GL_TEXTURE_2D, texture[4]);
 
 
 	glBegin(GL_POLYGON);

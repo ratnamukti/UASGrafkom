@@ -29,7 +29,7 @@ void display() {
 	glTranslatef(5.0, 2.0, 4.0); //geser sumbu dari arah gerakkan objek
 	increase(3, 4);
 	rotateY(3, 4);
-	dog(0);
+	dog(1);
 	glTranslatef(0.0, -2.0, 0.0); //geser sumbu dari arah gerakkan objek
 	dogShadow();
 
@@ -78,7 +78,7 @@ void keyboard(unsigned char key, int x, int y) {
 			position[selectedObject - 1][0] += 0.1;
 		}
 	}
-	else if (key == 'A' || key == 'a') {
+	else if (key == 'D' || key == 'd') {
 		if (!selectedObject) {
 			angle -= 0.05f;
 			lx = sin(angle);
@@ -88,7 +88,7 @@ void keyboard(unsigned char key, int x, int y) {
 			position[selectedObject - 1][2] -= 0.1;
 		}
 	}
-	else if (key == 'D' || key == 'd') {
+	else if (key == 'A' || key == 'a') {
 		if (!selectedObject) {
 			angle += 0.05f;
 			lx = sin(angle);
@@ -172,31 +172,25 @@ void keyboard(unsigned char key, int x, int y) {
 
 	//pilih objek
 	else if (key == '0') {
-		selectedObject = 0; //objek kamera dipilih
+		selectedObject = 0; 
 		x = 0.0f;
 		z = 30.0f;
 		h = 0.0;
 	}
 	else if (key == '1') {
-		selectedObject = 1; //objek anjing dipilih
-		//x = position[0][0];
-		//h = position[0][1];
-		//z = position[0][2];
+		selectedObject = 1;
 	}
 	else if (key == '2') {
-		selectedObject = 2; //objek manusia dipilih
-//		x = position[1][0];
-//		h = position[1][1];
-//		z = position[1][2];
+		selectedObject = 2;
 	}
 	else if (key == '3') {
-		selectedObject = 3; //cahaya laba-laba dipilih
+		selectedObject = 3; 
 	}
 	else if (key == '4') {
-		selectedObject = 4; //cahaya 1 dipilih
+		selectedObject = 4;
 	}
 	else if (key == '5') {
-		selectedObject = 5; //cahaya 4 dipilih
+		selectedObject = 5; 
 	}
 }
 
@@ -204,11 +198,10 @@ void main(int argc, char **argv) {
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
 	glutInitWindowSize(width, height);
-	glutCreateWindow("Proyek Akhir");
+	glutCreateWindow("Desi Iddad Proyek Akhir Grafkom");
 	
 	initTexture();
 	initLighting();
-	//PlaySound(TEXT("2_fast_2_furios.mp3"), NULL, SND_ASYNC | SND_FILENAME | SND_LOOP);
 	glutReshapeFunc(resize);
 	glutDisplayFunc(display);
 	glutIdleFunc(display);
