@@ -27,145 +27,146 @@ void walkingman() {
 	glPushMatrix();
 	glScalef(0.5, 0.5, 0.5);
 	setPosition(1);
+	glTranslatef(5.0, -3.6, 0.0);
 	glRotatef(90.0, 1.0, 0.0, 0.0);
-	//glRotatef(0, 0.0, 0.0, -1.0);
 
-		//kepala
-		glPushMatrix();
-		increment(2, 0, 10.0);
-		rotateX(2, 0);
-		glTranslatef(0.0, 0.0, -1.5);
-		//glRotatef(theta[0], 1.0, 0.0, 0.0);
+	// head
+	glPushMatrix();
+	increment(2, 0, 10.0);
+	rotateX(2, 0);
+	glTranslatef(0.0, 0.0, -1.5);
+	glutSolidSphere(1.0, 10, 10);
 
-			//telinga kanan
-			glPushMatrix();
-			//glRotatef(theta[1], 1.0, 0.0, 0.0);
-			glTranslatef(0.0, 1.0, -0.5);
-			glRotatef(90.0, 0.3, 1.0, 0.0);
-			gluDisk(quad, 0.0, 0.25, 10, 10);
-			gluCylinder(quad, 0.25, 0.25, 0.25, 10, 10);
-			glPopMatrix();
+	// right ear
+	glPushMatrix();
+	glTranslatef(0.0, 1.1, 0.0);
+	glRotatef(90.0, 0.3, 1.0, 0.0);
+	gluDisk(quad, 0.0, 0.25, 10, 10);
+	gluSphere(quad, 0.25, 0.25, 0.25);
+	glPopMatrix();
 
-			//telinga kiri
-			glPushMatrix();
-			//glRotatef(theta[2], 1.0, 0.0, 0.0);
-			glTranslatef(0.0, -1.0, -0.5);
-			glRotatef(90.0, -0.3, 1.0, 0.0);
-			gluDisk(quad, 0.0, 0.25, 10, 10);
-			gluCylinder(quad, 0.25, 0.25, 0.25, 10, 10);
-			glPopMatrix();
+	// left ear
+	glPushMatrix();
+	glTranslatef(0.0, -1.1, 0.0);
+	glRotatef(90.0, -0.3, 1.0, 0.0);
+	gluDisk(quad, 0.0, 0.25, 10, 10);
+	gluSphere(quad, 0.25, 0.25, 0.25);
+	glPopMatrix();
 
-		//glTranslatef(-2.8, 0.0, 0.0);
-		glutSolidSphere(1.0, 10, 10);
-		glPopMatrix();
+	glPopMatrix();
 
-		//tangan kanan
-		glPushMatrix();
-		increment(2, 3, 15.0);
-		rotateY(2, 3);
-			//lengan bawah kanan
-			glPushMatrix();
-			increment(2, 7, 12.0);
-			rotateZ(2, 7);
-			glTranslatef(-0.25, 1.25, 2.0);
-			glScalef(2.0, 0.5, 0.5);
-			glutSolidCube(0.8);
-			glPopMatrix();
+	// neck
+	glPushMatrix();
+	glTranslatef(0.15, 0.0, -0.50);
+	glScalef(0.5, 0.5, 1.0);
+	glutSolidCube(1.0);
+	glPopMatrix();
 
-			//lengan atas kanan
-			glRotatef(-15.0, 0.0, 1.0, 0.0);
-			glTranslatef(0.8, 1.25, 1.0);
-			glScalef(0.5, 0.5, 2.0);
-			glutSolidCube(0.8);
-		glPopMatrix();
+	// upper body
+	glPushMatrix();
+	glTranslatef(0.0, 0.0, 1.5);
+	glScalef(1.5, 1.5, 3.0);
+	glutSolidCube(1.0);
 
-		//tangan kiri
-		glPushMatrix();
-		increment(2, 4, 15.0);
-		rotateY(2, 4);
+	// left hand
+	glPushMatrix();
+	increment(2, 3, 15.0);
+	rotateY(2, 3);
 
-			glPushMatrix();
-			glTranslatef(-0.25, -1.25, 2.0);
-			increment(2, 8, 12.0);
-			rotateY(2, 8);
-			glScalef(2.0, 0.5, 0.5);
-			glutSolidCube(0.8);
-			glPopMatrix();
+	// left lower hand
+	glPushMatrix();
+	increment(2, 7, 12.0);
+	rotateZ(2, 7);
+	glTranslatef(0.18, 0.6, 0.5);
+	glScalef(0.2, 0.25, 0.7);
+	glutSolidCube(1.0);
+	glPopMatrix();
 
-			//lengan kiri atas
-			glRotatef(-15.0, 0.0, 1.0, 0.0);
-			glTranslatef(0.8, -1.25, 1.0);
-			glScalef(0.5, 0.5, 2.0);
-			glutSolidCube(0.8);
+	// left upper hand
+	glRotatef(-15.0, 0.0, 1.0, 0.0);
+	glTranslatef(0.2, 0.6, -0.2);
+	glScalef(0.2, 0.25, 0.7);
+	glutSolidCube(1.0);
+	glPopMatrix();
 
-		glPopMatrix();
 
-			//tubuh bawah
-		glPushMatrix();
-		glTranslatef(-0.5, 0.0, 6.0);
-	//glutSolidSphere(1.0, 10, 10);
+	// right hand
+	glPushMatrix();
+	increment(2, 4, 15.0);
+	rotateY(2, 4);
+	
+	// right lower hand
+	glPushMatrix();
+	glTranslatef(0.18, -0.6, 0.5);
+	increment(2, 8, -40.0);
+	rotateY(2, 8);
+	glScalef(0.2, 0.25, 0.7);
+	glutSolidCube(1.0);
+	glPopMatrix();
 
-	//kaki kanan
+	// right upper hand
+	glRotatef(-15.0, 0.0, 1.0, 0.0);
+	glTranslatef(0.2, -0.6, -0.2);
+	glScalef(0.2, 0.25, 0.7);
+	glutSolidCube(1.0);
+	glPopMatrix();
+
+	glPopMatrix();
+
+	// lower body
+	glPushMatrix();
+	glTranslatef(-0.5, 0.0, 3.0);
+
+	// left leg
 	glPushMatrix();
 	increment(2, 5, 30.0);
 	rotateY(2, 5);
 
-	//telapak kaki kanan
+	// left foot
 	glPushMatrix();
 	increment(2, 9, 12.0);
 	rotateY(2, 9);
 	glTranslatef(0.0, 0.5, 3.0);
 	glScalef(1.0, 0.5, 0.5);
-	glutSolidCube(0.8);
+	glutSolidCube(0.7);
 	glPopMatrix();
 
-	//paha kanan
+	// left thight
 	glTranslatef(0.5, 0.5, 1.0);
 	glScalef(0.5, 0.5, 5.0);
 	glutSolidCube(0.8);
 	glPopMatrix();
 
-	//kaki kiri
+	// right leg
 	glPushMatrix();
 	increment(2, 6, 30.0);
 	rotateY(2, 6);
 
-	//telapak kaki kiri
+	// right foot
 	glPushMatrix();
-	increment(2,10, 12.0);
+	increment(2, 10, 12.0);
 	glTranslatef(0.0, -0.5, 3.0);
 	rotateY(2, 10);
 	glScalef(1.0, 0.5, 0.5);
 	glutSolidCube(0.8);
 	glPopMatrix();
 
-	//paha kiri
+	// tight thight
 	glTranslatef(0.5, -0.5, 1.0);
 	glScalef(0.5, 0.5, 5.0);
 	glutSolidCube(0.8);
 	glPopMatrix();
 
 	glPopMatrix();
-
-	//leher
-	glPushMatrix();
-	glTranslatef(0.15, 0.0, -0.50);
-	gluDisk(quad, 0.0, 0.25, 10, 10);
-	gluCylinder(quad, 0.25, 0.25, 2.0, 10, 10);
-	glPopMatrix();
-
-	//badan
-	gluDisk(quad, 0.0, 1.0, 10, 10);
-	gluCylinder(quad, 1.0, 1.0, 5.0, 10, 10);
 	glPopMatrix();
 }
 
-//render objek anjing
+// render objek anjing
 void dog(int activateShadow) {
 	quad = gluNewQuadric();
 	gluQuadricDrawStyle(quad, GLU_FILL);
 
-	if (activateShadow){ //berikan nilai 0 (false) supaya bayangan tidak bertekstur
+	if (activateShadow){ 
 		glEnable(GL_TEXTURE_2D);
 		glEnable(GL_TEXTURE_GEN_S);
 		glEnable(GL_TEXTURE_GEN_T);
@@ -173,188 +174,150 @@ void dog(int activateShadow) {
 	}
 
 	glPushMatrix();
-		glScalef(0.25, 0.25, 0.25);
-		setPosition(0);
-		glRotatef(90.0, 1.0, 0.0, 0.0);
+	glScalef(0.25, 0.25, 0.25);
+	setPosition(0);
+	glRotatef(90.0, 1.0, 0.0, 0.0);
 
-		//kepala
-		glPushMatrix();
-			increment(0, 0, 5.0);
-			rotateY(0, 0);
-			//telinga kanan
-			glPushMatrix();
-				rotateX(0, 1);
-				glScalef(0.1, 0.1, 1);
-				glTranslatef(-25.4, 5.5, -0.5);
-				glRotatef(135.0, -1.5, 1.0, 0.0);
-				glutSolidCone(1.5, 3.0, 5, 2);
-			glPopMatrix();
+	// head
+	glPushMatrix();
+	increment(0, 0, 5.0);
+	rotateY(0, 0);
 
-			//telinga kiri
-			glPushMatrix();
-				rotateX(0, 2);
-				glScalef(0.1, 0.1, 1.0);
-				glTranslatef(-25.4, -5.5, -0.5);
-				glRotatef(135.0, 1.5, 1.0, 0.0);
-				glutSolidCone(1.5, 3.0, 5, 2);
-			glPopMatrix();
-			
-			//hidung
-			/*glPushMatrix();
-				glTranslatef(-3.0, 0.0, 1.0);
-				glutSolidSphere(0.5, 10, 10);
-			glPopMatrix();*/
+	// right eye
+	glPushMatrix();
+	rotateX(0, 1);
+	glTranslatef(-3.0, 0.4, -0.4);
+	glutSolidSphere(0.5, 10, 10);
+	glPopMatrix();
 
-			if (activateShadow) {
-				glEnable(GL_TEXTURE_2D);
-				glEnable(GL_TEXTURE_GEN_S);
-				glEnable(GL_TEXTURE_GEN_T);
-				glBindTexture(GL_TEXTURE_2D, texture[8]);
-			}
+	// left eye
+	glPushMatrix();
+	rotateX(0, 2);
+	glTranslatef(-3.0, -0.4, -0.4);
+	glutSolidSphere(0.5, 10, 10);
+	glPopMatrix();
 
-			glTranslatef(-2.8, 0.0, 0.0);
-			glutSolidSphere(1.0, 10, 10);
-		glPopMatrix();
+	if (activateShadow) {
+		glEnable(GL_TEXTURE_2D);
+		glEnable(GL_TEXTURE_GEN_S);
+		glEnable(GL_TEXTURE_GEN_T);
+		glBindTexture(GL_TEXTURE_2D, texture[8]);
+	}
 
-		if (activateShadow) {
-			glEnable(GL_TEXTURE_2D);
-			glEnable(GL_TEXTURE_GEN_S);
-			glEnable(GL_TEXTURE_GEN_T);
-			glBindTexture(GL_TEXTURE_2D, texture[0]);
-		}
+	glTranslatef(-2.8, 0.0, 0.0);
+	glutSolidSphere(0.6, 10, 10);
+	glPopMatrix();
 
-		//kaki depan kanan
-		glPushMatrix();
-			increment(0, 3, 15.0);
-			rotateY(0, 3);
-			//telapak kaki depan kanan
-			/*glPushMatrix();
-				glTranslatef(-1.6, 1.25, 2.0);
-				rotateY(0, 7);
-				glScalef(1.0, 0.5, 0.5);
-				glutSolidCube(0.8);
-			glPopMatrix();*/
+	if (activateShadow) {
+		glEnable(GL_TEXTURE_2D);
+		glEnable(GL_TEXTURE_GEN_S);
+		glEnable(GL_TEXTURE_GEN_T);
+		glBindTexture(GL_TEXTURE_2D, texture[0]);
+	}
 
-			//paha depan kanan
-			glRotatef(-90.0, -90.0, 0.0, 0.0);
-			glTranslatef(-0.8, -1.25, -5.5);
-			glScalef(1.0, 1.0, 1.0);
-			glutSolidCone(0.8,5,2,3);
-		glPopMatrix();
+	// right wing
+	glPushMatrix();
+	increment(0, 3, 15.0);
+	rotateY(0, 3);
+	glPushMatrix();
+	glRotatef(-90.0, -90.0, 0.0, 0.1);
+	glTranslatef(0.8, -0.4, -2.5);
+	glScalef(0.4, 0.001, 5.0);
+	glutSolidCube(1.0);
+	glPopMatrix();
+	glRotatef(-90.0, -90.0, 0.0, 0.1);
+	glTranslatef(-0.8, -0.4, -2.5);
+	glScalef(0.8, 0.001, 5.0);
+	glutSolidCube(1.0);
+	glPopMatrix();
 
-		//kaki depan kiri
-		glPushMatrix();
-			increment(0, 4, 15.0);
-			rotateY(0, 4);
-			//telapak kaki depan kiri
-			/*glPushMatrix();
-				glTranslatef(-1.6, -1.25, 2.0);
-				rotateY(0, 8);
-				glScalef(1.0, 0.5, 0.5);
-				glutSolidCube(0.8);
-			glPopMatrix();*/
+	// left wing
+	glPushMatrix();
+	increment(0, 4, 15.0);
+	rotateY(0, 4);
+	glPushMatrix();
+	glRotatef(270.0, 1.0, 0.0, 0.0);
+	glTranslatef(0.8, 0.4, -2.5);
+	glScalef(0.4, 0.001, 5.0);
+	glutSolidCube(1.0);
+	glPopMatrix();
+	glRotatef(270.0, 1.0, 0.0, 0.0);
+	glTranslatef(-0.8, 0.4, -2.5);
+	glScalef(0.8, 0.001, 5.0);
+	glutSolidCube(1.0);
+	glPopMatrix();
 
-			//paha depan kiri
-			glRotatef(270.0, 1.0, 0.0, 0.0);
-			glTranslatef(-0.8, 1.25, -5.5);
-			glScalef(1.0, 1.0, 1.0);
-			glutSolidCone(0.8, 5, 2, 3);
-		glPopMatrix();
+	// first foot
+	glPushMatrix();
+	glRotatef(15.0, 0.0, 1.0, 0.0);
+	glTranslatef(-0.8, 1.25, 0.2);
+	glScalef(0.2, 0.2, 3.0);
+	glutSolidCube(0.5);
+	glPopMatrix();
 
-		//kaki belakang kanan
-		glPushMatrix();
-			increment(0, 5, 15.0);
-			//rotateY(0, 5);
-			//telapak kaki belakang kanan
-			/*glPushMatrix();
-				glTranslatef(-0.5, 1.25, 2.0);
-				//rotateY(0, 9);
-				glScalef(1.0, 0.5, 0.5);
-				glutSolidCube(0.8);
-			glPopMatrix();*/
+	// second foot
+	glPushMatrix();
+	glRotatef(15.0, 0.0, 1.0, 0.0);
+	glTranslatef(-0.8, -1.25, 0.2);
+	glScalef(0.2, 0.2, 3.0);
+	glutSolidCube(0.5);
+	glPopMatrix();
 
-			//paha belakang kanan
-			glRotatef(15.0, 0.0, 1.0, 0.0);
-			glTranslatef(-0.8, 1.25, 1.5);
-			glScalef(0.2, 0.2, 3.0);
-			glutSolidCube(0.5);
-		glPopMatrix();
+	// third foot
+	glPushMatrix();
+	increment(0, 6, 15.0);
+	glRotatef(15.0, 0.0, 1.0, 0.0);
+	glTranslatef(0.0, -1.25, 0.2);
+	glScalef(0.2, 0.2, 3.0);
+	glutSolidCube(0.5);
+	glPopMatrix();
 
-		//kaki belakang kiri
-		glPushMatrix();
-			increment(0, 6, 15.0);
-			//rotateY(0, 6);
-			//telapak kaki belakang kiri
-			/*glPushMatrix();
-				glTranslatef(-0.5, -1.25, 2.0);
-				//rotateY(0, 10);
-				glScalef(1.0, 0.5, 0.5);
-				glutSolidCube(0.8);
-			glPopMatrix();*/
+	// forth foot
+	glPushMatrix();
+	increment(0, 6, 15.0);
+	glRotatef(15.0, 0.0, 1.0, 0.0);
+	glTranslatef(0.0, 1.25, 0.2);
+	glScalef(0.2, 0.2, 3.0);
+	glutSolidCube(0.5);
+	glPopMatrix();
 
-			//paha belakang kiri
-			glRotatef(15.0, 0.0, 1.0, 0.0);
-			glTranslatef(-0.8, -1.25, 1.5);
-			glScalef(0.2, 0.2, 3.0);
-			glutSolidCube(0.5);
-		glPopMatrix();
+	// fifth foot
+	glPushMatrix();
+	increment(0, 6, 15.0);
+	glRotatef(15.0, 0.0, 1.0, 0.0);
+	glTranslatef(-0.5, -1.25, 0.2);
+	glScalef(0.2, 0.2, 3.0);
+	glutSolidCube(0.5);
+	glPopMatrix();
 
-		//kaki tambahan
-		glPushMatrix();
-		increment(0, 6, 15.0);
-		glRotatef(15.0, 0.0, 1.0, 0.0);
-		glTranslatef(0.0, -1.25, 1.5);
-		glScalef(0.2, 0.2, 3.0);
-		glutSolidCube(0.5);
-		glPopMatrix();
+	// sixth foot
+	glPushMatrix();
+	increment(0, 6, 15.0);
+	glRotatef(15.0, 0.0, 1.0, 0.0);
+	glTranslatef(-0.5, 1.0, 0.2);
+	glScalef(0.2, 0.2, 3.0);
+	glutSolidCube(0.5);
+	glPopMatrix();
 
-		//kaki tambahan
-		glPushMatrix();
-		increment(0, 6, 15.0);
-		glRotatef(15.0, 0.0, 1.0, 0.0);
-		glTranslatef(0.0, 1.25, 1.5);
-		glScalef(0.2, 0.2, 3.0);
-		glutSolidCube(0.5);
-		glPopMatrix();
+	// tail
+	glPushMatrix();
+	increment(0, 11, 5.0);
+	rotateY(0, 11);
+	glScalef(0.6, 0.65, 0.65);
+	glRotatef(90.0, 0.0, 1.0, 0.0);
+	glTranslatef(0.0, 0.0, 2.0);
+	glutSolidCone(0.7, 3.0, 10, 10);
+	glPopMatrix();
 
-		//kaki tambahan
-		glPushMatrix();
-		increment(0, 6, 15.0);
-		glRotatef(15.0, 0.0, 1.0, 0.0);
-		glTranslatef(-0.5, -1.25, 1.5);
-		glScalef(0.2, 0.2, 3.0);
-		glutSolidCube(0.5);
-		glPopMatrix();
-
-		//kaki tambahan
-		glPushMatrix();
-		increment(0, 6, 15.0);
-		glRotatef(15.0, 0.0, 1.0, 0.0);
-		glTranslatef(-0.5, 1.25, 1.5);
-		glScalef(0.2, 0.2, 3.0);
-		glutSolidCube(0.5);
-		glPopMatrix();
-
-		//ekor
-		glPushMatrix();
-			increment(0, 11, 15.0);
-			rotateY(0, 11);
-			glScalef(0.6, 0.65, 0.65);
-			glRotatef(90.0, 0.0, 1.0, 0.0);
-			glTranslatef(0.0, 0.0, 2.0);
-			glutSolidCone(1.5, 3.0, 10, 10);
-		glPopMatrix();
-
-		//badan
-		glScalef(1.1, 0.65, 0.65);
-		glutSolidSphere(2.0, 10, 10);
-		glDisable(GL_TEXTURE_GEN_S);
-		glDisable(GL_TEXTURE_GEN_T);
+	// body
+	glScalef(1.1, 0.2, 0.2);
+	glutSolidSphere(2.0, 10, 10);
+	glDisable(GL_TEXTURE_GEN_S);
+	glDisable(GL_TEXTURE_GEN_T);
 	glPopMatrix();
 }
 
-//render objek bayi
-
+// table object
 void baby(int activateShadow) {
 	babyquad = gluNewQuadric();
 	gluQuadricDrawStyle(babyquad, GLU_FILL);
@@ -367,110 +330,45 @@ void baby(int activateShadow) {
 	}
 
 	glPushMatrix();
-		glScalef(0.3, 0.3, 0.3);
-		setPosition(7);
-		glRotatef(270.0, 0.0, 0.0, 1.0);
-		glRotatef(60.0, 1.0, 0.0, 0.0);
-		//rotateZ(2, 0);
-		//kepala
-		glPushMatrix();
-			increment(2, 0, 5.0);
-			rotateY(2, 0);
-			glTranslatef(-3.8, -1.0, -0.7);
-			glutSolidCube(1.5);
-		glPopMatrix();
+	glScalef(0.3, 0.3, 0.3);
+	setPosition(7);
+	glRotatef(270.0, 0.0, 0.0, 1.0);
+	glPushMatrix();
+	glTranslatef(-3.8, -1.0, -0.7);
+	glScalef(1.5, 13.0, 13.0);
+	glutSolidCube(1.0);
+	glPopMatrix();
 
-		if (activateShadow) {
-			glEnable(GL_TEXTURE_2D);
-			glEnable(GL_TEXTURE_GEN_S);
-			glEnable(GL_TEXTURE_GEN_T);
-			glBindTexture(GL_TEXTURE_2D, texture[0]);
-		}
-		
-		//kaki depan kanan
-		glPushMatrix();
-			increment(2, 3, 15.0);
-			rotateZ(2, 3);
-			//telapak kaki depan kanan
-			/*glPushMatrix();
-				glTranslatef(-1.6, 1.25, 1.6);
-				//rotateY(0, 7);
-				glRotatef(40.0, 0.0, 1.0, 0.0);
-				glScalef(1.2, 0.5, 0.5);
-				glutSolidCube(0.8);
-			glPopMatrix();*/
-			//paha depan kanan
-			glRotatef(-80.0, 80.0, 1.0, 0.0);
-			glTranslatef(-1.8, 1.0, 1.0);
-			glScalef(0.5, 0.5, 2.8);
-			glutSolidCube(0.8);
-		glPopMatrix();
+	glPushMatrix();
+	glRotatef(90.0, 0.0, 0.0, 1.0);
+	glTranslatef(0.0, 6.0, 0.0);
+	glutSolidTeapot(1.5);
+	glPopMatrix();
 
-		//kaki depan kiri
-		glPushMatrix();
-			increment(2, 4, 15.0);
-			rotateZ(2, 4);
-			//telapak kaki depan kiri
-			/*glPushMatrix();
-				glTranslatef(-1.6, -1.25, 1.6);
-				//rotateY(0, 8);
-				glRotatef(40.0, 0.0, 1.0, 0.0);
-				glScalef(1.2, 0.5, 0.5);
-				glutSolidCube(0.8);
-			glPopMatrix();*/
-			//paha depan kiri
-			glRotatef(60.0, 60.0, 0.0, 1.0);
-			glTranslatef(-1.8, -1.25, 1.0);
-			glScalef(0.5, 0.5, 2.8);
-			glutSolidCube(0.8);
-		glPopMatrix();
+	if (activateShadow) {
+		glEnable(GL_TEXTURE_2D);
+		glEnable(GL_TEXTURE_GEN_S);
+		glEnable(GL_TEXTURE_GEN_T);
+		glBindTexture(GL_TEXTURE_2D, texture[0]);
+	}
 
-		//kaki belakang kanan
-		glPushMatrix();
-			increment(2, 5, 15.0);
-			//rotateZ(2, 5);
-			//telapak kaki belakang kanan
-			/*glPushMatrix();
-				glTranslatef(1.7, 1.25, 2.0);
-				rotateY(2, 9);
-				glScalef(2.0, 0.5, 0.5);
-				glutSolidCube(0.8);
-			glPopMatrix();*/
-			//paha belakang kanan
-			glRotatef(90.0, 0.0, 1.0, 0.0);
-			glTranslatef(0.3, 0.15, 1.5);
-			glScalef(0.5, 0.5, 3.0);
-			glutSolidCube(0.8);
-		glPopMatrix();
+	// table pad
+	glPushMatrix();
+	increment(2, 5, 15.0);
+	glRotatef(90.0, 0.0, 1.0, 0.0);
+	glTranslatef(0.3, 0.10, 4.0);
+	glutSolidSphere(3.0, 15.0, 5.0);
+	glPopMatrix();
 
-		//kaki belakang kiri
-		glPushMatrix();
-			increment(2, 6, 15.0);
-			//rotateZ(2, 6);
-			//telapak kaki belakang kiri
-			/*glPushMatrix();
-				glTranslatef(1.7, -1.25, 2.0);
-				rotateY(2, 10);
-				glScalef(2.0, 0.5, 0.5);
-				glutSolidCube(0.8);
-			glPopMatrix();*/
-			//paha belakang kiri
-			glRotatef(90.0, 0.0, 1.0, 0.0);
-			glTranslatef(0.6, -1.25, 1.5);
-			glScalef(0.5, 0.5, 3.0);
-			glutSolidCube(0.8);
-		glPopMatrix();
-
-		//badan
-		glTranslatef(-0.8, -1.0, -0.7);
-		glScalef(2.2, 1.3, 0.6);
-		glutSolidCube(2.0);
-		glDisable(GL_TEXTURE_GEN_S);
-		glDisable(GL_TEXTURE_GEN_T);
+	// table foot
+	glScalef(2.5, 1.0, 1.0);
+	glutSolidCube(2.0);
+	glDisable(GL_TEXTURE_GEN_S);
+	glDisable(GL_TEXTURE_GEN_T);
 	glPopMatrix();
 }
 
-// menggambar objek spider (menyatukan bagian-bagian spider)
+// caterpillar
 void ant(int activateShadow) {
 	lua = gluNewQuadric();
 	gluQuadricDrawStyle(lua, GLU_FILL);
@@ -497,104 +395,50 @@ void ant(int activateShadow) {
 	}
 
 	glPushMatrix();
-		glScalef(0.05, 0.05, 0.05);
-		//glTranslatef(0.0, -95.0, 70.0);
-		setPosition(2);
-		glRotatef(90.0, 0.0, -1.0, 0.0);
+	glScalef(0.05, 0.05, 0.05);
+	setPosition(2);
+	glRotatef(90.0, 0.0, -1.0, 0.0);
 
-		glPushMatrix();
-			rotateY(1, 0);
-			increment(1, 0, 5.0);
-			glPushMatrix();
-				glTranslatef(0.0, 2.0, -5.5);
-				glScalef(TORSO_RADIUS, TORSO_HEIGHT, TORSO_RADIUS);
-				glutSolidSphere(1.0, 10, 10);
-			glPopMatrix();
-			glScalef(TORSO_RADIUS, TORSO_HEIGHT, TORSO_RADIUS);
-			glutSolidSphere(0.75, 10, 10);
-		glPopMatrix();
+	glPushMatrix();
+	rotateY(1, 0);
+	increment(1, 0, 5.0);
+	glPushMatrix();
+	glTranslatef(0.0, 1.0, -5.5);
+	glScalef(TORSO_RADIUS, TORSO_HEIGHT, TORSO_RADIUS);
+	glutSolidSphere(0.5, 10, 10);
+	glPushMatrix();
+	glPushMatrix();
+	glTranslatef(0.0, 0.0, -1.5);
+	glScalef(TORSO_RADIUS, TORSO_HEIGHT, TORSO_RADIUS);
+	glutSolidSphere(0.1, 10, 10);
+	glPopMatrix();
+	glTranslatef(0.0, 0.0, -0.7);
+	glScalef(TORSO_RADIUS, TORSO_HEIGHT, TORSO_RADIUS);
+	glutSolidSphere(0.1, 10, 10);
+	glPopMatrix();
+	glPopMatrix();
+	glScalef(TORSO_RADIUS, TORSO_HEIGHT, TORSO_RADIUS);
+	glutSolidSphere(0.5, 10, 10);
+	glPopMatrix();
 
-		glPushMatrix();
-			glTranslatef(0.0, 0.0, 0.0);
-			rotateY(1, 2);
-			increment(1, 2, 2.0);
-			glTranslatef(0.0, -0.5*HEAD_HEIGHT, 0.0);
-			glTranslatef(0.0, 0.5*HEAD_HEIGHT, 0.0);
-			glTranslatef(0.0, 0.0, TORSO_RADIUS);
-			glScalef(HEAD_RADIUS, HEAD_HEIGHT, HEAD_RADIUS);
-			glutSolidSphere(1.0, 10, 10);
-		glPopMatrix();
+	glPushMatrix();
+	glTranslatef(0.0, 0.0, 0.0);
+	rotateY(1, 2);
+	increment(1, 2, 2.0);
+	glTranslatef(0.0, -0.5*HEAD_HEIGHT, 0.0);
+	glTranslatef(0.0, 0.5*HEAD_HEIGHT, 0.0);
+	glTranslatef(0.0, 0.0, TORSO_RADIUS);
+	glScalef(HEAD_RADIUS, HEAD_HEIGHT, HEAD_RADIUS);
+	glutSolidSphere(1.0, 10, 10);
+	glPopMatrix();
 
-		glPushMatrix();
-			glRotatef(90, 0.0, 0.0, 1.0);
-			glTranslatef(-0.5*TORSO_RADIUS, 0.5*TORSO_HEIGHT, 2.5);
-			rotateZ(1, 3);
-			increment(1, 3, 5.0);
-			glPushMatrix();
-				glRotatef(-90.0, 1.0, 0.0, 0.0);
-				gluCylinder(rua, UPPER_ARM_RADIUS, UPPER_ARM_RADIUS, UPPER_ARM_HEIGHT, 10, 10);
-			glPopMatrix();
-			glTranslatef(0.0, 0.93*UPPER_ARM_HEIGHT, 0.0);
-			rotateZ(1, 4);
-			increment(1, 4, 5.0);
-			glRotatef(-90.0, 1.0, -0.5, 0.0);
-			gluCylinder(rla, LOWER_ARM_RADIUS, LOWER_ARM_RADIUS, LOWER_ARM_HEIGHT, 10, 10);
-		glPopMatrix();
-
-		glPushMatrix();
-			glRotatef(-90, 0.0, 0.0, 1.0);
-			glTranslatef(0.5*TORSO_RADIUS, 0.5*TORSO_HEIGHT, 2.5);
-			rotateZ(1, 5);
-			increment(1, 5, 5.0);
-			glPushMatrix();
-				glRotatef(-90.0, 1.0, 0.0, 0.0);
-				gluCylinder(lua, UPPER_ARM_RADIUS, UPPER_ARM_RADIUS, UPPER_ARM_HEIGHT, 10, 10);
-			glPopMatrix();
-			glTranslatef(0.0, 0.93*UPPER_ARM_HEIGHT, 0.0);
-			rotateZ(1, 6);
-			increment(1, 6, 5.0);
-			glRotatef(-90.0, 1.0, 0.5, 0.0);
-			gluCylinder(lla, LOWER_ARM_RADIUS, LOWER_ARM_RADIUS, LOWER_ARM_HEIGHT, 10, 10);
-		glPopMatrix();
-
-		glPushMatrix();
-			glRotatef(90, 0.0, 0.0, 1.0);
-			glTranslatef(-0.5*TORSO_RADIUS, 0.5*TORSO_HEIGHT, -2.5);
-			rotateZ(1, 7);
-			increment(1, 7, 5.0);
-			glPushMatrix();
-				glRotatef(-90.0, 1.0, 0.0, 0.0);
-				gluCylinder(rul, UPPER_LEG_RADIUS, UPPER_LEG_RADIUS, UPPER_LEG_HEIGHT, 10, 10);
-			glPopMatrix();
-			glTranslatef(0.0, 0.93*UPPER_LEG_HEIGHT, 0.0);
-			rotateZ(1, 8);
-			increment(1, 8, 5.0);
-			glRotatef(-90.0, 1.0, -1.0, 0.0);
-			gluCylinder(rll, LOWER_LEG_RADIUS, LOWER_LEG_RADIUS, LOWER_LEG_HEIGHT, 10, 10);
-		glPopMatrix();
-
-		glPushMatrix();
-			glRotatef(-90, 0.0, 0.0, 1.0);
-			glTranslatef(0.5*TORSO_RADIUS, 0.5*TORSO_HEIGHT, -2.5);
-			rotateZ(1, 9);
-			increment(1, 9, 5.0);
-			glPushMatrix();
-				glRotatef(-90.0, 1.0, 0.0, 0.0);
-				gluCylinder(lul, UPPER_LEG_RADIUS, UPPER_LEG_RADIUS, UPPER_LEG_HEIGHT, 10, 10);
-			glPopMatrix();
-			glTranslatef(0.0, 0.93*UPPER_LEG_HEIGHT, 0.0);
-			rotateZ(1, 10);
-			increment(1, 10, 5.0);
-			glRotatef(-90.0, 1.0, 1.0, 0.0);
-			gluCylinder(lll, LOWER_LEG_RADIUS, LOWER_LEG_RADIUS, LOWER_LEG_HEIGHT, 10, 10);
-		glPopMatrix();
-
-		glDisable(GL_TEXTURE_GEN_S);
-		glDisable(GL_TEXTURE_GEN_T);
+	glDisable(GL_TEXTURE_GEN_S);
+	glDisable(GL_TEXTURE_GEN_T);
 	glPopMatrix();
 }
 
-//menggambar ruangan
+
+// room
 void room() {
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, texture[4]);
@@ -725,38 +569,6 @@ glutSolidCube(GLdouble size)
 }
 
 void toy() {
-	//kotak
-	
-	/*glPushMatrix();
-	glTranslatef(0.0, -4.0, -3.0);
-	glTranslatef(0.0, 0.0, -1.0);
-	glTranslatef(8.5, 0.0, 0.0);
-	glutSolidCube(2.5);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(0.0, -4.0, -3.0);
-	glTranslatef(0.0, 0.0, -1.0);
-	glTranslatef(-8.0, 0.0, 0.0);
-	glRotatef(45.0, 0.0, 0.0, 0.0);
-	glutSolidCube(2.5);
-	glPopMatrix();*/
-
-	//mainan bocah
-	/*glPushMatrix();
-	glTranslatef(0.0, 0.0, 3.5);
-	glTranslatef(6.0, 0.0, 0.0);
-	glTranslatef(0.0, -5.0, 0.0);
-	glRotatef(90.0, 1.0, 0.0, 0.0);
-	glutSolidTorus(0.5, 1.0, 10, 10);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(10.0, 2.5, 0.0);
-	glRotatef(90.0, 0.0, 1.0, 0.0);
-	glutSolidTorus(0.5, 1.0, 10, 10);
-	glPopMatrix();*/
-
 	glPushMatrix();
 	glTranslatef(-7.0, 1.30, -10.5);
 	glRotatef(90.0, 1.0, 0.0, 0.0);
@@ -769,7 +581,6 @@ void toy() {
 	glRotatef(90.0, 0.0, 1.0, 0.0);
 	glutSolidCube(2);
 	glPopMatrix();
-
 }
 
 void dogShadow() {
@@ -975,8 +786,6 @@ void walkingmanShadow() {
 		glShadowProjection(position[3], ceilingPointRot, ceilingNormal);
 		walkingman();
 		glPopMatrix();
-
-		
 
 		glPushMatrix();
 		glShadowProjection(position[3], rightPointRot, rightNormal);

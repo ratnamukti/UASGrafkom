@@ -37,10 +37,6 @@ void display() {
 	rotateY(3, 4);
 	walkingman();
 	walkingmanShadow();
-	//if (selectedObject){
-		//rotateY(3, 4);
-		//gluLookAt(x, h, z, x + lx, h, z + lz, 0.0f, 1.0f, 0.0f);
-	//}
 
 	glRotatef(-70.0, 0.0, 1.0, 0.0); //beri jarak antara 2 objek lain
 	ant(1);
